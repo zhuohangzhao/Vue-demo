@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./lib/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container" id="box">
+    <!--表单-->
+    <form class="form">
+        <div class="form-group ">
+            <label for="username">用户名:</label>
+            <input type="text" class="form-control" id="username" placeholder="输入姓名" v-model="username">
+        </div>
+        <div class="form-group ">
+            <label for="sex">性别:</label>
+            <input type="text" class="form-control" id="sex" placeholder="输入性别" v-model="sex">
+        </div>
+        <div class="form-group ">
+            <label for="age">年龄:</label>
+            <input type="text" class="form-control" id="age" placeholder="输入年龄" v-model="age">
+        </div>
+        <div class="form-group">
+            <input type="button" value="添加" class="btn btn-primary" v-on:click="add()">
+            <input type="reset" value="重置" class="btn btn-danger">
+        </div>
+    </form>
+    <!--用户信息表-->
+    <table class="table table-hover table-bordered">
+        <h3 class="text-center">用户信息表</h3>
+        <thead>
+        <tr class="text-center">
+            <th class="text-center">序号</th>
+            <th class="text-center">用户名</th>
+            <th class="text-center">性别</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" v-for="(item,index) in myData">
+            <td>{{index+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.sex}}</td>
+            <td>{{item.age}}</td>
+            <td>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" v-on:click="nowIndex=index">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="6">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" v-show="myData.length !=0" v-on:click="nowIndex=-2">全部删除
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-muted" colspan="6" v-show="myData.length == 0">
+                <p>暂无数据</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--模态框-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">警告</h4>
+                </div>
+                <div class="modal-body">
+                    <p>确认删除么？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="deleteMsg(nowIndex)">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./lib/jquery.min.js"></script>
+<script src="./lib/bootstrap.min.js"></script>
+<script src="./lib/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#box',
+        data: {
+            myData: [],
+            username: '',
+            sex: '',
+            age: '',
+            nowIndex: '-100'         // 任意值
+        },
+        methods: {
+            add: function () {
+                this.myData.push({
+                    name:this.username,     // this代表实例，可以获取到data里任何数据
+                    sex:this.sex,
+                    age:this.age
+                });
+                this.username = '';
+                this.age = '';
+                this.sex = '';
+            },
+            deleteMsg: function (n) {
+                if(n==-2){
+                    this.myData = [];
+                }else {
+                    this.myData.splice(n,1);
+                }
+
+            }
+        }
+
+    });
+
+
+</script>
+</body>
+</html>
