@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+<div id="box">
+    <div >
+        <!--  <img src="{{url}}" alt=""> 不建议使用 -->
+        <img :src="url" alt="" :width="w" :title="t">
+    </div>
+</div>
+
+<script src="../../lib/vue.js"></script>
+<script>
+
+    new Vue({
+        el: "#box",
+        data: {
+            url : 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png',
+            w: '200px',
+            t: "百度图标"
+        },
+        methods: {
+
+        }
+    });
+
+    // 绑定属性都用 v-bind:  简写 :
+
+
+</script>
+</body>
+</html>

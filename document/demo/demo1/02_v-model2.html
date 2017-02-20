@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+     <!--v-model 表单 双向绑定数据 -->
+    <div id = "box">
+        <input type="text" v-model="msg">
+        <br>
+        {{msg}}
+        <br>
+        {{msg2}}
+        <br>
+        {{msg3}}
+        <br>
+        {{arr}}
+        <br>
+        {{json}}
+    </div>
+
+<script src="../../lib/vue.js"></script>
+<script>
+     new Vue({
+         el:"#box",             // 选择器，class tagName 都可以
+         data: {
+             msg: 'hello vue',      // 可以是字符串，数字，boolean，数组，对象
+             msg2: 12,
+             msg3: true,
+             arr : ['apple','banana','fruit'],
+             json: {'a':1,'b':2}
+         }
+     })
+
+
+</script>
+</body>
+</html>

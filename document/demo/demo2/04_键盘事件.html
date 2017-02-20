@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+<div id="box">
+    <div >
+        <input type="text" @keydown.enter="show($event)">
+    </div>
+</div>
+
+<script src="../../lib/vue.js"></script>
+<script>
+
+    new Vue({
+        el: "#box",
+        data: {},
+        methods: {
+            show: function (ev) {
+               alert( ev.keyCode)
+            }
+        }
+    });
+
+// 记住所有的 keyCode 比较困难,  keydown.13  简写 keydown.enter
+// 键盘修饰符简写 .enter .tab .delete .esc .space .up .down .left .right .ctrl .alt .shift .meta
+
+
+
+</script>
+</body>
+</html>

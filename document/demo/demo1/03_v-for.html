@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+     <!--v-model 表单 双向绑定数据 -->
+    <div id = "box">
+        <input type="text" v-model="msg">
+        <ul>
+            <!-- v-for  -->
+            <li v-for="value in arr">{{value}}</li>
+        </ul>
+        <ul>
+            <!--第一个参数name是键值，第二个参数是键名-->
+            <li v-for="(value,key) in json">{{value}}-{{key}}</li>
+        </ul>
+
+    </div>
+
+<script src="../../lib/vue.js"></script>
+<script>
+     new Vue({
+         el:"#box",
+         data: {
+             msg: 'hello vue ',
+             arr : ['apple','banana','fruit'],
+             json: {'a':1,'b':2}
+         }
+     })
+
+
+</script>
+</body>
+</html>

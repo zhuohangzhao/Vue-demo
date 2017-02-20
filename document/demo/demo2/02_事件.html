@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+<div id="box">
+    <div @click="show2()">
+        <input type="button" value="按钮" @click.stop="show($event)">
+    </div>
+</div>
+
+<script src="../../lib/vue.js"></script>
+<script>
+
+    new Vue({
+        el: "#box",
+        data: {},
+        methods: {
+            show: function (ev) {
+                alert(ev.clientX);
+
+            },
+            show2: function () {
+                alert(2)
+            }
+        }
+    });
+
+
+    // @click.stop 阻止事件冒泡简写
+    // @submit.prevent    阻止默认行为
+    // @click.stop.prevent  可以串联
+    // 还有其他简写 capture（捕获），once(一次)
+
+</script>
+</body>
+</html>
