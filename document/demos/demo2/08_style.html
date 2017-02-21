@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .black {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="box">
+    <div >
+        <p :style="[c]">hello vue</p>
+    </div>
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+    new Vue({
+        el: "#box",
+        data: {
+            c:{
+                color: 'red',
+                fontSize: '40px'
+            }
+        },
+        methods: {
+
+        }
+    });
+
+    // 绑定Class 数组用法
+
+
+</script>
+</body>
+</html>

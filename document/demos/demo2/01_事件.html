@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+<div id="box">
+    <div @click="show2()">
+        <input type="button" value="按钮" @click="show($event)">
+    </div>
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+    new Vue({
+        el: "#box",
+        data: {},
+        methods: {
+            show: function (ev) {
+                alert(ev.clientX);
+//                ev.cancelBubble = true;  阻止事件冒泡
+            },
+            show2: function () {
+                alert(2)
+            }
+        }
+    });
+
+
+    // v-on: 简写 @        v-bind: 简写 :
+    // show($event)  相当于原生js中的 事件对象
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+<div id="box">
+    {{a}}
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+
+    var vm = new Vue({
+        aa: 11,             // 自定义属性
+        show: function () {
+            alert('show')
+        },
+        data: {
+            a: 1
+        }
+    }).$mount('#box');
+
+    console.log(vm.$log());
+
+    // vm.$log() 查看实例的状态，  vue 1.0方法
+    // 注意 vue 2.0 不支持，会报错，
+
+</script>
+</body>
+</html>

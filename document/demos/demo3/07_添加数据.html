@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .black {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <input type="button" value="添加" @click="add">
+    <ul>
+        <li v-for="val in arr">
+            {{val}}
+        </li>
+    </ul>
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+    var vm = new Vue({
+        data: {
+            arr: ['apple', 'pear', 'orange']
+        },
+        methods: {
+            add: function () {
+                this.arr.push('tomato');
+            }
+        }
+    }).$mount('#box');
+
+    // vue 2.0 可以正常添加，vue 1.0 重复添加的数据会警告
+
+</script>
+</body>
+</html>

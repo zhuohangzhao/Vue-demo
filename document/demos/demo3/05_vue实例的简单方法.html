@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+<div id="box">
+    {{a}}
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+
+    var vm = new Vue({
+        aa: 11,             // 自定义属性
+        show: function () {
+            alert('show')
+        },
+        data: {
+            a: 1
+        }
+    }).$mount('#box');
+
+    console.log(vm.$options.aa);
+    vm.$options.show();
+
+    // vm.$options 获取自定义属性
+
+</script>
+</body>
+</html>

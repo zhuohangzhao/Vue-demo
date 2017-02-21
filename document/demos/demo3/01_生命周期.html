@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+</head>
+<body>
+<script src="../../lib/vue2.0.js"></script>
+
+<div id="box">
+    <p>{{msg}}</p>
+</div>
+
+<script src="../../lib/vue1.0.js"></script>
+<script>
+
+    var vm = new Vue({
+        el: "#box",
+        data: {
+            msg: 'hello vue'
+        },
+        created: function () {
+            alert('实例已经生成');
+        },
+        beforeCompile: function () {
+            alert('编译之前')
+        },
+        compiled: function () {
+            alert('编译之后')
+        },
+        ready: function () {
+            alert('插入文档中')
+        },
+        beforeDestroy: function () {
+            alert('销毁之前')
+        },
+        destroyed: function () {
+            alert('销毁之后')
+        }
+
+    });
+
+    /*点击页面销毁vue对象 执行beforeDestroy,destroyed*/
+    document.onclick = function () {
+        vm.$destroy();
+    };
+
+    // vue 1.0中vue的生命周期,其中 created，beforeCompile，Compiled, ready，beforeDestroy，destroy 称为钩子函数
+</script>
+</body>
+</html>

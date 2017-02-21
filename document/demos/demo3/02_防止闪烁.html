@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<script src="../../lib/vue2.0.js"></script>
+
+<div id="box" v-cloak>
+    <p>{{msg}}</p>
+    <p v-html="msg"></p>
+    <p v-text="msg"></p>
+</div>
+
+<script src="../../lib/vue1.0.js"></script>
+<script>
+
+    var vm = new Vue({
+        el: "#box",
+        data: {
+            msg: '<strong>hello vue</strong>'
+        }
+
+    });
+
+    // 防止闪烁方法： v-cloak , v-text , v-html
+</script>
+</body>
+</html>

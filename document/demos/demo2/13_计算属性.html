@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .black {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="box">
+   a => {{a}}
+    <br>
+   b => {{b}}
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+   var vm = new Vue({
+        el: "#box",
+        data: {
+           a:1
+        },
+        computed: {
+            b: {
+                get: function () {
+                    return this.a + 2;
+                },
+                set: function (val) {
+                    this.a = val;   // a = 10
+                }
+            }
+        }
+    });
+
+    document.onclick = function () {
+        vm.b = 10;
+    };
+
+    // 计算属性里面内部其实是一个 set 和 get 函数，一个是获取值调用，一个是传入值调用
+    //  计算属性b赋值时候，值传入 set 函数给 val，get函数是获取值 b = 12
+
+
+
+</script>
+</body>
+</html>

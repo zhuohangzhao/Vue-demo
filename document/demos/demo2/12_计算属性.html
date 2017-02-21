@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .black {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="box">
+   a => {{a}}
+    <br>
+   b => {{b}}
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+   var vm = new Vue({
+        el: "#box",
+        data: {
+           a:1
+        },
+        computed: {
+            b: function() {
+                return this.a +1 ;
+            }
+        }
+    });
+
+    document.onclick = function () {
+        vm.a = 100;
+    };
+
+    //  a 的值改变，b的值也跟着改变
+
+
+
+</script>
+</body>
+</html>

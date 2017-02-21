@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .black {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="box">
+   a => {{a}}
+    <br>
+   b => {{b}}
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+   var vm = new Vue({
+        el: "#box",
+        data: {
+           a:1
+        },
+        computed: {
+            b: function() {
+                return 2;
+            }
+        }
+    });
+
+    console.log(vm.a);
+
+    //  computed里面的对象是计算属性, b 是一个属性，其值决定于函数 return 出来的数据。
+    // computed 里面属性可以放业务逻辑
+
+
+</script>
+</body>
+</html>

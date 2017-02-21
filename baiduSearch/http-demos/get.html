@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get</title>
+</head>
+<div id="btn">
+    <input type="button" value="按钮" @click="get">
+</div>
+
+<body>
+<script src="./lib/vue.js"></script>
+<script src="./lib/vue-resource.js"></script>
+<script>
+
+    new Vue({
+        el:'#btn',
+        data: {
+            
+        },
+        methods: {
+            get: function () {
+                this.$http.get('a.php',{
+                    a:1,b:2
+                }).then(function (res) {
+                    alert(res.data)
+                },function (err) {
+                    console.log(err)
+                })
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

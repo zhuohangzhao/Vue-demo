@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+
+<div id="box">
+    {{a}}
+</div>
+
+<script src="../../lib/vue2.0.js"></script>
+<script>
+
+    //   var vm = new Vue({
+    //        data: {
+    //           a:1
+    //        }
+    //    });
+
+    //    vm.$mount('#box');
+
+    var vm = new Vue({
+        data: {
+            a: 1
+        }
+    }).$mount('#box');
+
+    // $mount() 是绑定元素的另一个实现方法，手动挂在vue程序
+
+
+</script>
+</body>
+</html>
